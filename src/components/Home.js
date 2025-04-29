@@ -1,10 +1,11 @@
 import React from 'react'
-import { CardState } from '../context/Context'
+import { CartState } from '../context/Context';
 import SingleProduct from './SingleProduct';
 import Filters from './Filters';
 import './styles.css'
+
 const Home = () => {
-    const { state : { products }, } = CardState(); //destructuring the products
+    const { state : { products }, } = CartState(); //destructuring the products
     // console.log(products);
   return (
     <div className='home'>

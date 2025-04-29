@@ -2,7 +2,7 @@ import React, { useContext, useReducer, createContext } from 'react'
 import { faker } from '@faker-js/faker';
 import { cartReducer } from './Reducers';
 
-const Cart = createContext();
+export const Cart = createContext();
 faker.seed(99);
 
 const Context = ({children}) => {
@@ -22,12 +22,15 @@ const Context = ({children}) => {
   })
 
   return (
-    <Cart.Provider value={{ state, dispatch }}>{children}</Cart.Provider>
+    <Cart.Provider 
+      value={{ state, dispatch }}>
+        {children}
+    </Cart.Provider>
   )
 }
 
 export default Context
 
-export const CardState = () => {
+export const CartState = () => {
     return useContext(Cart)
 }

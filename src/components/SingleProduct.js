@@ -1,13 +1,17 @@
 import React from 'react'
 import { Button, Card } from 'react-bootstrap'
 import Rating from './Rating';
-import { CardState } from '../context/Context';
+import { CartState } from '../context/Context';
+
 
 const SingleProduct = ({prod}) => {
     const {
         state : { cart },
         dispatch,
-    } = CardState();
+    } = CartState();
+
+    // console.log(cart)
+
   return (
     <div className='products'>
     <Card>
@@ -24,9 +28,10 @@ const SingleProduct = ({prod}) => {
                 <Rating rating={prod.ratings}/>
             </Card.Subtitle>
             {
-                cart.some(p => p.id === prod.id) ? (
+                cart.some((p) => p.id === prod.id) ? (
                     <Button 
                         onClick={()=>{
+                            console.log("Remove from cart clicked:", prod);
                             dispatch({
                                 type: "REMOVE_FROM_CART",
                                 payload: prod,

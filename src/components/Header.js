@@ -2,7 +2,12 @@ import React from 'react'
 import {Badge, Container, Dropdown, FormControl, Nav, Navbar} from 'react-bootstrap'
 import {TiShoppingCart} from 'react-icons/ti'
 import {Link} from 'react-router-dom'
+import { CartState } from '../context/Context'
 const Header = () => {
+
+    const {
+        state: { cart },
+    } = CartState();
   return (
     <Navbar bg='dark' variant='dark' style={{height: 80}}>
         <Container>
@@ -20,7 +25,7 @@ const Header = () => {
                 <Dropdown alignRight>
                     <Dropdown.Toggle variant='success'>
                         <TiShoppingCart color='white' size='25px' />
-                        <Badge>{10}</Badge>
+                        <Badge>{cart.length}</Badge>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu style={{ minWidth: 370}}>
