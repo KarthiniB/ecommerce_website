@@ -5,12 +5,11 @@ import { CartState } from '../context/Context';
 
 
 const SingleProduct = ({prod}) => {
-    const {
-        state : { cart },
-        dispatch,
+    const { state :{ cart },
+    dispatch,
     } = CartState();
 
-    // console.log(cart)
+    console.log(cart)
 
   return (
     <div className='products'>
@@ -43,7 +42,7 @@ const SingleProduct = ({prod}) => {
                 </Button>
                 ):(
                     <Button 
-                    onClick={() => {
+                        onClick={() => {
                         dispatch({
                             type: 'ADD_TO_CART',
                             payload: prod,
